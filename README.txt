@@ -63,21 +63,22 @@ Observation: This is the primary model table designed to store patient informati
 
 Implementation:
 
-1.Adherence to RESTful architecture principles to design robust and scalable APIs.
-2.Leveraging JpaRepository to seamlessly connect the persistence layer with the data layer, simplifying database operations.
-3.Implementation of a dedicated service class to encapsulate business logic, complemented by the use of Data Transfer Objects (DTOs) to structure data exchange between clients and the API.
-4.Integration of mappers to enable smooth conversion between DTOs and JPA entities, ensuring data consistency.
-5.Creation of an enumeration to define the static table, with special attention to case-sensitive deserialization to handle observation type and value.
-6.Introduction of a global exception handler capable of effectively managing custom ObservationException instances, enhancing error handling for application exceptions within the Observation API.
-7.Robust input request validation, ensuring data integrity and API reliability.
-8.OpenAPI documentation is implemented and accessible at http://localhost:8080/swagger-ui/index.html.
+1. Adherence to RESTful architecture principles to design robust and scalable APIs.
+2. Leveraging JpaRepository to seamlessly connect the persistence layer with the data layer, simplifying database operations.
+3. Implementation of a dedicated service class to encapsulate business logic, complemented by the use of Data Transfer Objects (DTOs) to structure data exchange between clients and the API.
+4. Integration of mappers to enable smooth conversion between DTOs and JPA entities, ensuring data consistency.
+5. Creation of an enumeration to define the static table, with special attention to case-sensitive deserialization to handle observation type and value.
+6. Introduction of a global exception handler capable of effectively managing custom ObservationException instances, enhancing error handling for application exceptions within the Observation API.
+7. Robust input request validation, ensuring data integrity and API reliability.
+8. OpenAPI documentation is implemented and accessible at http://localhost:8080/swagger-ui/index.html.
 
 To run the application:
 
-1.Navigate to the project path in your terminal.
-2.Build the Docker image using the following command,
+1. Navigate to the project path in your terminal.
+2. Execute mvn clean install command
+3. Build the Docker image using the following command,
     docker build -t observation-api .
-3.Ensure the image is created by listing Docker images,
+4. Ensure the image is created by listing Docker images,
     docker images
-4.Run the Docker container with port mapping to make it accessible on your host machine,
+5. Run the Docker container with port mapping to make it accessible on your host machine,
     docker run -p 8080:8080 observation-api
