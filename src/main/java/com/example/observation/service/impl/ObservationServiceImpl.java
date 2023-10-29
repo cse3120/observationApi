@@ -48,6 +48,7 @@ public class ObservationServiceImpl implements ObservationService {
         }
         List<ObservationResponse> observationResponseList = observationDTOList.stream().map(observationDTO -> {
             ObservationResponse observationResponse = new ObservationResponse();
+            observationResponse.setObservationId(observationDTO.getObservationId());
             observationResponse.setObservationType(observationDTO.getObservationEnum().getObservationTypeName());
             observationResponse.setObservationDateTime(observationDTO.getObservationDateTime());
             observationResponse.setPatientId(observationDTO.getPatientDTO().getPatientId());
