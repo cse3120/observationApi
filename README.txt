@@ -75,10 +75,9 @@ Implementation:
 To run the application:
 
 1. Navigate to the project path in your terminal.
-2. Execute mvn clean install command
-3. Build the Docker image using the following command,
+2. Build the Docker image using the following command,
     docker build -t observation-api .
-4. Ensure the image is created by listing Docker images,
+3. Ensure the image is created by listing Docker images,
     docker images
-5. Run the Docker container with port mapping to make it accessible on your host machine,
+4. Run the Docker container with port mapping to make it accessible on your host machine,
     docker run -p 8080:8080 observation-api
