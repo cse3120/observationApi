@@ -70,12 +70,14 @@ class ObservationControllerTest {
         patientDTO.setPatientName("Chris");
 
         ObservationResponse observationResponse=new ObservationResponse();
+         observationResponse.setObservationId(1L);
         observationResponse.setObservationType(ObservationEnum.HEART_RATE.getObservationTypeName());
         observationResponse.setObservationUnit("beats/minute");
         observationResponse.setObservationDateTime(LocalDateTime.parse("2023-09-06T11:02:44Z", dateTimeFormatter));
         observationResponse.setObservationValue(65.0);
         observationResponse.setPatientId(1L);
         ObservationResponse observationResponse1=new ObservationResponse();
+        observationResponse1.setObservationId(2L);
         observationResponse1.setObservationType(ObservationEnum.SKIN_TEMPERATURE.getObservationTypeName());
         observationResponse1.setObservationUnit("degrees Celsius");
         observationResponse1.setObservationDateTime(LocalDateTime.parse("2023-09-07T11:23:24Z", dateTimeFormatter));
