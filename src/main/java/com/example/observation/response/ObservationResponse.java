@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class ObservationResponse {
+    @Schema(defaultValue = "1")
+    private Long observationId;
     @Schema(defaultValue = "heart-rate")
     private String observationType;
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
@@ -21,14 +23,23 @@ public class ObservationResponse {
     public ObservationResponse() {
     }
 
-    public ObservationResponse(String observationType, LocalDateTime observationDateTime, Long patientId,
+    public ObservationResponse(Long observationId,String observationType, LocalDateTime observationDateTime, Long patientId,
                                Double observationValue, String observationUnit) {
         super();
+        this.observationId=observationId;
         this.observationType = observationType;
         this.observationDateTime = observationDateTime;
         this.patientId = patientId;
         this.observationValue = observationValue;
         this.observationUnit = observationUnit;
+    }
+
+    public Long getObservationId() {
+        return observationId;
+    }
+
+    public void setObservationId(Long observationId) {
+        this.observationId = observationId;
     }
 
     public String getObservationType() {
@@ -72,23 +83,15 @@ public class ObservationResponse {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(observationDateTime, observationType, observationUnit, observationValue, patientId);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ObservationResponse that = (ObservationResponse) o;
+        return Objects.equals(observationId, that.observationId) && Objects.equals(observationType, that.observationType) && Objects.equals(observationDateTime, that.observationDateTime) && Objects.equals(patientId, that.patientId) && Objects.equals(observationValue, that.observationValue) && Objects.equals(observationUnit, that.observationUnit);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        ObservationResponse other = (ObservationResponse) obj;
-        return Objects.equals(observationDateTime, other.observationDateTime)
-                && Objects.equals(observationType, other.observationType)
-                && Objects.equals(observationUnit, other.observationUnit)
-                && Objects.equals(observationValue, other.observationValue)
-                && Objects.equals(patientId, other.patientId);
+    public int hashCode() {
+        return Objects.hash(observationId, observationType, observationDateTime, patientId, observationValue, observationUnit);
     }
 }
